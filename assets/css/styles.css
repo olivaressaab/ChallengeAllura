@@ -1,0 +1,562 @@
+/* Definición de variables de color */
+:root {
+  --color-footer: #b43aa3d1;
+  --color-font-footer: #ebebff;
+}
+body{
+  background-color: rgba(244, 236, 244, 0.932);
+}
+.visible-scrollbar,
+.invisible-scrollbar {
+  display: block;
+  width: 10em;
+  overflow: auto;
+  
+
+}
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; 
+
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto 1fr 300px;
+  grid-template-rows: auto 1fr 300px;
+  grid-template-areas:
+    "logo    encryptor     decryptor"
+    "  .     encryptor     decryptor"
+    "  .     encryptor     decryptor"
+    "footer  footer         footer";
+}
+
+
+/* Logo Alura */
+.logo {
+  grid-area: logo;
+  width: 30px;
+  height: 48px;
+  margin: 20px 100px 0 70px; /
+}
+
+
+/* Encriptar y Desencriptar */
+.encryptor {
+  grid-area: encryptor;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 120px;
+  padding-right: 86px;
+  margin-bottom: 52px;
+  height: calc(
+    100vh - 172px
+  ); 
+}
+
+
+#initialText {
+  width: 100%;
+  height: 250px; 
+  margin-top: 0;
+  margin-left: auto;
+  background-color: transparent;
+  color: var(#131618);
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  outline: none;
+  resize: none;
+  border: none;
+}
+
+
+
+/* Controles */
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "ad  ."
+    "controlEn controlDe";
+}
+
+
+
+
+
+
+button {
+  flex: 1;
+  height: 57px;
+  border-radius: 50px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  box-shadow: 1px 3px 5px 1px rgba(0, 0, 0, 0.305);
+}
+
+
+.encryptor:hover {background-color: #e9d0e1; 
+}
+
+#encryptor:hover {background-color: #d889dc;}
+
+/* Estilos del botón de encriptación */
+#encryptor {
+  grid-area: controlEn;
+  background: #d69dd6;  /* Botón de encriptación */
+  color: #525252f9; 
+  font-weight: bold;
+  
+}
+
+
+/* Estilos del botón de desencriptación */
+#decryptor {
+  grid-area: controlDe;
+  background: #d69dd6; 
+  color: #525252f9; 
+  margin-left: 24px; 
+  font-weight: bold;
+}
+
+#decryptor:hover {background-color: #d889dc;}
+
+/*Area de desencriptado*/
+
+/* Área encriptado */
+.decryptor {
+  grid-area: decryptor;
+  margin: 20px 20px 16px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 32px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 3px 5px 1px rgba(91, 91, 91, 0.582);
+  box-sizing: border-box;
+}
+
+.decryptor-texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* doll */
+#doll {
+  margin: 90px 32px 8px 32px;
+  height: auto;
+  width: 240px;
+  height: 208px;
+}
+
+/* Style texto de error no encontrado */
+.text-noFound {
+  height: auto;
+  color: var(    #945e86
+  ); /* Color mensaje de error */
+  margin-bottom: 16px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  color:#d69dd6
+}
+
+/* Estilos del texto de entrada */
+.text-enter {
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(#7b4b7b); /
+}
+
+.decryptor-elements {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  flex: 1;
+  height: max-content;
+  margin: 32px 32px 32px 32px;
+}
+
+.encrypted-text {
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  height: 300px;
+  outline: none;
+  border: none;
+  margin: 32px;
+  box-sizing: border-box;
+  resize: none;
+  color: var(#495057);
+}
+
+
+.element-text {
+  flex: 1;
+}
+
+
+#encrypted {
+  text-align: center;
+}
+
+/*  Botones */
+.element-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+/* Botón de copiar */
+#copy {
+  display: flex;
+  width: 250px;
+  height: 57px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50px;
+  background: #df3e8f75;
+  color: rgb(53, 53, 53);
+  text-align: center;
+  box-sizing: border-box;
+  transition: background-color 1s ease;
+  box-shadow: 1px 3px 5px 1px rgba(0, 0, 0, 0.305)
+  ;
+}
+
+
+#copy:hover {background-color: #d889dc;}
+
+
+/* Estilos del botón de copiar cuando está activo */
+#copy.ok {
+  background-color: var( rgb(53, 53, 53)); 
+  width: 57px; /* Ajuste de ancho */
+}
+
+/* Estilos del icono de marca de verificación */
+#copy.ok::after {
+  align-items: center;
+  content: "\2714"; /* Código de la marca de verificación */
+  display: inline-block;
+  font-size: 25px;
+  color: white;
+  position: relative;
+}
+/**********************************************************************************************************/
+
+/* Pie de página con alguna información */
+footer {
+  height: auto;
+  background: linear-gradient(var(--color-footer), rgb(194, 207, 218));
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.computer-icon,
+.github-icon {
+  width: 90px;
+  height: 50px;
+}
+
+.additional-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  color: var(--color-font-footer);
+  font-family: Inter;
+  font-size: 20px;
+}
+
+span {
+  padding-left: 10px;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 15px;
+  text-align: center;
+  width: 50%;
+  color: var(--color-font-footer);
+  text-align: center;
+}
+
+.github-link {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.github-link:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos del color del placeholder al agitar */
+#initialText.shake-orange::placeholder {
+  color: var(--color-orange); /* Color del marcador de posición al agitar */
+  font-style: oblique;
+}
+
+/* Estilos del efecto de agitación */
+.shake-placeholder {
+  animation: shake 0.5s ease infinite;
+}
+
+/* Keyframes para la animación de agitación */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-3px);
+  }
+
+  50% {
+    transform: translateX(1px);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .logo {
+    margin-right: calc(100px + (50 * (100vw - 1200px) / 200));
+    margin-left: calc(70px + (50 * (100vw - 1200px) / 500));
+  }
+
+  #spanAdd {
+    font-size: calc(16px + (5 * (100vw - 1200px) / 500));
+  }
+
+  .encryptor {
+    padding-right: calc(85px + (40 * (100vw - 1200px) / 200));
+  }
+}
+
+@media screen and (max-width: 868px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "logo    "
+      "encryptor   "
+      "decryptor  "
+      "footer  ";
+    gap: 10px;
+    margin: 15px;
+  }
+
+  .logo {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  #initialText {
+    height: 150px;
+    width: 100%;
+    margin-top: 0;
+    margin-left: auto;
+    background-color: transparent;
+    color: var(--color-blue);
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 70;
+    line-height: 100%;
+    outline: none;
+    resize: none;
+    border: none;
+  }
+
+  .encryptor {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 52px;
+    height: calc(100vh - 140px);
+  }
+
+  .decryptor {
+    width: 100%;
+    justify-content: center;
+    padding: 30px 10px 30px 10px;
+  }
+
+  #doll {
+    display: none;
+  }
+
+  .decryptor-elements {
+    display: none;
+    flex-direction: column;
+    margin: 15px;
+  }
+
+  #encrypted {
+    width: 100%;
+  }
+
+  .encrypted-text {
+    margin: 0px;
+    height: 250px;
+  }
+
+  .element-text {
+    width: 100%;
+  }
+  .element-button {
+    width: 100%;
+    padding-top: 20px;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+
+  .additional-content {
+    padding-bottom: 15px;
+  }
+
+  .github-link {
+    padding-top: 15px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #initialText {
+    width: 100%;
+    height: 150px;
+    margin-top: 0;
+    margin-left: auto;
+    background-color: #d69dd6;
+    color: var(--color-blue);
+    /* Color de texto */
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 70;
+    line-height: 100%;
+    outline: none;
+    resize: none;
+    border: none;
+  }
+
+  .controls {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "ad  "
+      "controlEn "
+      "controlDe";
+    gap: 20px;
+  }
+
+  #decryptor {
+    margin: 0;
+  }
+  #spanAdd {
+    font-size: calc(16px + (15 * (100vw - 425px) / 600));
+  }
+}
+
+
+.container{
+ position: relative;
+ width: 100%;
+ height: 100vh;
+ overflow: hidden;
+}
+.bubbles{
+ position: relative;
+ display: flex;
+ width: 100%;
+}
+.bubbles span{
+ position: relative;
+ width: 30px;
+ height: 30px;
+ background: #b43aa3d1;
+ margin: 0 4px;
+ border-radius: 50%;
+ box-shadow:  0 0 0 10px #b43aa344,
+ 0 0 50px #b43aa3d1,
+ 0 0 100px #b43aa3d1;
+ animation: animate 15s linear infinite;
+ animation-duration: calc(120s / var(--i));
+}
+.bubbles span:nth-child(even){
+ background: #ffffff;
+ box-shadow:  0 0 0 10px #ffffff44,
+ 0 0 50px #ffffff,
+ 0 0 100px #ffffff;
+}
+@keyframes animate {
+    0%
+    {
+        transform: translateY(100vh) scale(0);
+    }
+    100%
+    {
+        transform: translateY(-10vh) scale(1);
+    }
+}
